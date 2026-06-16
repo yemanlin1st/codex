@@ -1,0 +1,47 @@
+{
+  "version": "0.1",
+  "default_policy": "deny",
+  "principles": [
+    "need-based access",
+    "least privilege",
+    "read-before-write",
+    "human approval for sensitive actions",
+    "no secrets in public repositories",
+    "audit important actions"
+  ],
+  "allowed_tool_categories": [
+    {
+      "category": "repository_read",
+      "risk": "low",
+      "approval_required": false
+    },
+    {
+      "category": "repository_write_public_safe",
+      "risk": "medium",
+      "approval_required": true
+    },
+    {
+      "category": "email_calendar_contacts",
+      "risk": "high",
+      "approval_required": true
+    },
+    {
+      "category": "deployment_or_production_change",
+      "risk": "high",
+      "approval_required": true
+    },
+    {
+      "category": "financial_or_payment_action",
+      "risk": "critical",
+      "approval_required": true
+    }
+  ],
+  "blocked_by_default": [
+    "unknown_server",
+    "unreviewed_registry",
+    "broad_write_access",
+    "secret_exposure",
+    "silent_send_delete_deploy",
+    "unscoped_connector_access"
+  ]
+}
